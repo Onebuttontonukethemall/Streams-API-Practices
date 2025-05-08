@@ -16,10 +16,16 @@ import org.junit.jupiter.api.Test;
  */
 class D_ValidNumbersOnly {
   @Test
-  @Disabled
   void testCheckAllIntegersWithoutAlphabets() {
     final var input = List.of("1", "12", "12a", "a12");
-    var yourSolution = List.of();
+    var yourSolution = input.stream().mapMulti((value, stream) -> {
+      try {
+        Double.parseDouble(value);
+        stream.accept(value);
+      } catch (NumberFormatException ignored) {
+
+      }
+    }).toList();
     var mySolution = NumbersProblemSolution.getNumberOnly(input);
 
     Assertions.assertEquals(mySolution, yourSolution);

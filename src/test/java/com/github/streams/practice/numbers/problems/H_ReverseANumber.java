@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 class H_ReverseANumber {
 
   @Test
-  @Disabled
-  static void reverseANumber() {
+  void reverseANumber() {
     final var input = DummyData.fakerNumber();
     var mySolution = NumbersProblemSolution.reverseANumber(input);
-    int yourSolution = 0;
+    int yourSolution = Integer.parseInt(new StringBuilder(String.valueOf(input)).reverse().toString());
+    System.out.println(yourSolution);
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

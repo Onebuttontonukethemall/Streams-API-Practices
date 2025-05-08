@@ -12,9 +12,8 @@ import org.junit.jupiter.api.Test;
 class C_ConsumerTest {
   /** Write a lambda expression that appends the string "abc" to the given StringBuilder. */
   @Test
-  @Disabled
   public void c_consumer1() {
-    Consumer<StringBuilder> cons = null; // TODO
+    Consumer<StringBuilder> cons = a -> a.append("abc");
 
     StringBuilder sb = new StringBuilder("xyz");
     cons.accept(sb);
@@ -23,9 +22,8 @@ class C_ConsumerTest {
 
   /** Write a lambda expression that clears the given list. */
   @Test
-  @Disabled
   public void c_consumer2() {
-    Consumer<List<String>> cons = null; // TODO
+    Consumer<List<String>> cons = List::clear;
 
     List<String> list = new ArrayList<>(List.of("a", "b", "c"));
     cons.accept(list);
@@ -34,9 +32,8 @@ class C_ConsumerTest {
 
   /** Write an unbound method reference that clears the given list. */
   @Test
-  @Disabled
   public void c_consumer3() {
-    Consumer<List<String>> cons = null; // TODO
+    Consumer<List<String>> cons = List::clear;
 
     List<String> list = new ArrayList<>(List.of("a", "b", "c"));
     cons.accept(list);
@@ -48,12 +45,11 @@ class C_ConsumerTest {
    * the second.
    */
   @Test
-  @Disabled
   public void c_consumer4() {
     Consumer<List<String>> c1 = list -> list.add("first");
     Consumer<List<String>> c2 = list -> list.add("second");
 
-    Consumer<List<String>> consumer = null; // TODO
+    Consumer<List<String>> consumer = c1.andThen(c2);
 
     List<String> list = new ArrayList<>(List.of("a", "b", "c"));
     consumer.accept(list);
